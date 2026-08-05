@@ -4,10 +4,10 @@ import { getTranslations } from "next-intl/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const SUPPORT_EMAIL = "ayuda@elevark.com.mx";
+const SUPPORT_EMAIL = "ayuda@marketlyx.com.mx";
 const BRAND_NAME = "Marketlyx";
-const BRAND_URL = "elevark.com.mx";
-const BRAND_LOGO = "https://elevark.com.mx/title.png"; 
+const BRAND_URL = "marketlyx.com.mx";
+const BRAND_LOGO = "https://marketlyx.com.mx/title.png"; 
 
 export async function POST(req: Request) {
   try {

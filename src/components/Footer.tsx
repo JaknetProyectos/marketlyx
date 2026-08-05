@@ -131,7 +131,7 @@ export function Footer() {
                     {t("contact.emailLabel")}
                   </p>
                   <p className="mt-0.5 text-sm font-bold text-slate-200">
-                    ayuda@elevark.com.mx
+                    ayuda@marketlyx.com.mx
                   </p>
                 </div>
               </div>
