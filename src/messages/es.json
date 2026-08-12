@@ -336,22 +336,26 @@
     }
   },
   "ContactEmail": {
-    "missingFields": "Se requieren campos obligatorios (nombre, correo, mensaje)",
-    "internalError": "Falla interna en la plataforma",
-    "businessSubject": "[Contacto Prospecto] {asunto} - {nombre}",
-    "clientSubject": "Confirmación de solicitud - {brandName}",
-    "businessTitle": "Nuevo Mensaje de Prospecto",
-    "businessSubtitle": "Un usuario ha completado el formulario de contacto web.",
-    "clientTitle": "Recibimos tu solicitud",
-    "clientSubtitle": "Agradecemos tu interés en contactar a nuestro equipo especializado.",
-    "applicantDetails": "Información de la Persona",
-    "messageSummary": "Resumen de la Consulta",
-    "name": "Nombre completo",
-    "email": "Correo electrónico",
-    "sentMessage": "Mensaje enviado",
-    "automatedDisclaimer": "* Correo automático confirmando el envío de la información. El equipo de estrategia revisará tus datos y se pondrá en contacto pronto.",
-    "allRightsReserved": "Todos los derechos reservados.",
-    "footerText": "Estrategias Digitales e Innovación Creativa."
+    "defaultSubject": "Hemos recibido tu mensaje - {brandName}",
+    "title": "Gracias por contactarnos",
+    "subtitle": "Hola {name}, hemos recibido tu mensaje y nuestro equipo lo atenderá en breve.",
+    "disclaimer": "Este es un correo automático que confirma la recepción de tu mensaje. Si tienes alguna duda adicional, puedes escribirnos a {supportEmail}.",
+    "errors": {
+      "missingFields": "Faltan campos obligatorios (nombre, correo electrónico)."
+    },
+    "sections": {
+      "contactDetails": "Información de Contacto",
+      "message": "Detalles del Mensaje"
+    },
+    "labels": {
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "phone": "Teléfono",
+      "company": "Empresa"
+    },
+    "footer": {
+      "rightsReserved": "Todos los derechos reservados."
+    }
   },
   "PurchaseReceipt": {
     "missingFields": "Faltan datos de la compra para completar la orden",

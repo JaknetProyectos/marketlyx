@@ -336,22 +336,26 @@
     }
   },
   "ContactEmail": {
-    "missingFields": "Missing required input fields (name, email, message)",
-    "internalError": "Internal server connection issue",
-    "businessSubject": "[Lead Alert] {asunto} - {nombre}",
-    "clientSubject": "We received your message - {brandName}",
-    "businessTitle": "New Contact Submission",
-    "businessSubtitle": "A new lead form submission was received via website.",
-    "clientTitle": "Thank You for Contacting Us",
-    "clientSubtitle": "We have received your message and assigned it to our creative team.",
-    "applicantDetails": "Contact Information",
-    "messageSummary": "Inquiry Details",
-    "name": "Full Name",
-    "email": "Email Address",
-    "sentMessage": "Submitted message",
-    "automatedDisclaimer": "* This automated response confirms receipt of your inquiry. Our strategy team will evaluate your details and respond shortly.",
-    "allRightsReserved": "All rights reserved.",
-    "footerText": "Digital Strategy & Growth Marketing."
+    "defaultSubject": "We received your message - {brandName}",
+    "title": "Thank You for Contacting Us",
+    "subtitle": "Hello {name}, we have received your message and our team will get back to you shortly.",
+    "disclaimer": "This is an automated email confirming receipt of your inquiry. If you have any further questions, feel free to contact us at {supportEmail}.",
+    "errors": {
+      "missingFields": "Missing required fields (name, email address)."
+    },
+    "sections": {
+      "contactDetails": "Contact Information",
+      "message": "Inquiry Details"
+    },
+    "labels": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "company": "Company"
+    },
+    "footer": {
+      "rightsReserved": "All rights reserved."
+    }
   },
   "PurchaseReceipt": {
     "missingFields": "Missing order details required for fulfillment",
