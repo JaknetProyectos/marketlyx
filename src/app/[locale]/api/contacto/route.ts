@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const SUPPORT_EMAIL = "hello@zenvia.com.mx";
+const SUPPORT_EMAIL = "ayuda@marketlyx.com.mx";
 const BRAND_NAME = "Marketlyx";
 const BRAND_URL = "marketlyx.com.mx";
 const BRAND_LOGO = "https://marketlyx.com.mx/title.png";
