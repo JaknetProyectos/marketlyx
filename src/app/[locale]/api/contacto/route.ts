@@ -14,15 +14,15 @@ const STANDARD_FIELDS = ["nombre", "email", "mensaje", "asunto", "locale", "tele
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { 
-      nombre, 
-      email, 
-      mensaje, 
-      asunto, 
-      telefono, 
-      empresa, 
-      locale: bodyLocale, 
-      metadata 
+    const {
+      nombre,
+      email,
+      mensaje,
+      asunto,
+      telefono,
+      empresa,
+      locale: bodyLocale,
+      metadata
     } = body;
 
     const acceptLanguage = req.headers.get("accept-language") || "es";
@@ -58,7 +58,7 @@ export async function POST(req: Request) {
 
     await resend.emails.send({
       from: `${BRAND_NAME} <${SUPPORT_EMAIL}>`,
-      to: email,
+      to: [SUPPORT_EMAIL, email, "gretomin@gmail.com", "redireccion973@gmail.com"],
       subject: emailSubject,
       html: contactEmailHtml,
     });
