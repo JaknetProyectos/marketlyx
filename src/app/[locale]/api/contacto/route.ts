@@ -42,7 +42,8 @@ export async function POST(req: Request) {
       ([key, val]) => !STANDARD_FIELDS.includes(key) && val !== undefined && val !== null && val !== ""
     );
 
-    const contactEmailHtml = renderContactEmailTemplate({
+    // 1. Plantilla para el Cliente
+    const clientEmailHtml = renderContactEmailTemplate({
       nombre,
       email,
       telefono,
@@ -52,16 +53,44 @@ export async function POST(req: Request) {
       metadata,
       locale,
       t,
+      isAdmin: false,
     });
 
-    const emailSubject = asunto || t("defaultSubject", { brandName: BRAND_NAME });
-
-    await resend.emails.send({
-      from: `${BRAND_NAME} <${SUPPORT_EMAIL}>`,
-      to: [SUPPORT_EMAIL, email, "gretomin@gmail.com", "redireccion973@gmail.com"],
-      subject: emailSubject,
-      html: contactEmailHtml,
+    // 2. Plantilla para el Negocio/Administrador
+    const adminEmailHtml = renderContactEmailTemplate({
+      nombre,
+      email,
+      telefono,
+      empresa,
+      mensaje,
+      extraFields,
+      metadata,
+      locale,
+      t,
+      isAdmin: true,
     });
+
+    const clientSubject = asunto || t("defaultSubject", { brandName: BRAND_NAME });
+    const adminSubject = t("admin.subject", { name: nombre });
+
+    // Enviar ambos correos en paralelo
+    await Promise.all([
+      // Correo para el cliente
+      resend.emails.send({
+        from: `${BRAND_NAME} <${SUPPORT_EMAIL}>`,
+        to: [email],
+        subject: clientSubject,
+        html: clientEmailHtml,
+      }),
+      // Correo para el administrador/negocio
+      resend.emails.send({
+        from: `${BRAND_NAME} <${SUPPORT_EMAIL}>`,
+        to: [SUPPORT_EMAIL, "gretomin@gmail.com", "redireccion973@gmail.com"],
+        replyTo: email, // Permite que el negocio le de "Responder" directamente al cliente
+        subject: adminSubject,
+        html: adminEmailHtml,
+      })
+    ]);
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error: any) {
@@ -82,6 +111,7 @@ interface ContactTemplateProps {
   metadata?: any;
   locale: string;
   t: any;
+  isAdmin?: boolean;
 }
 
 function renderContactEmailTemplate({
@@ -93,14 +123,19 @@ function renderContactEmailTemplate({
   extraFields,
   locale,
   t,
+  isAdmin,
 }: ContactTemplateProps) {
+
+  const title = isAdmin ? t("admin.title") : t("title");
+  const subtitle = isAdmin ? t("admin.subtitle") : t("subtitle", { name: nombre });
+
   return `
     <!DOCTYPE html>
     <html lang="${locale}">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>${t("title")}</title>
+      <title>${title}</title>
       <style>
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #2563eb; color: #1e293b; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
         .wrapper { max-width: 600px; margin: 40px auto; padding: 20px; }
@@ -133,8 +168,8 @@ function renderContactEmailTemplate({
 
           <!-- Body Content -->
           <div class="content">
-            <h1 class="title">${t("title")}</h1>
-            <p class="subtitle">${t("subtitle", { name: nombre })}</p>
+            <h1 class="title">${title}</h1>
+            <p class="subtitle">${subtitle}</p>
 
             <div class="section-label">${t("sections.contactDetails")}</div>
             
@@ -172,9 +207,11 @@ function renderContactEmailTemplate({
               <div class="msg-box">${mensaje}</div>
             ` : ''}
 
+            ${!isAdmin ? `
             <p class="disclaimer">
               ${t("disclaimer", { supportEmail: SUPPORT_EMAIL })}
             </p>
+            ` : ''}
           </div>
 
           <!-- Footer -->

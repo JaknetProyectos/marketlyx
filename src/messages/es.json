@@ -355,6 +355,11 @@
     },
     "footer": {
       "rightsReserved": "Todos los derechos reservados."
+    },
+    "admin": {
+      "subject": "Nuevo mensaje de contacto de {name}",
+      "title": "Nuevo Mensaje de Contacto",
+      "subtitle": "Has recibido un nuevo mensaje a través del formulario web. Aquí están los detalles:"
     }
   },
   "PurchaseReceipt": {
