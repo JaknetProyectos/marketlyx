@@ -128,7 +128,7 @@ export async function processEtominPayment(payment: PaymentData) {
     };
 
   } catch (error: any) {
-    console.error("Etomin Payment Error:", error.response?.data || error.message);
+    console.error("Etomin Payment Error:", error.response?.data || error.message, error);
     return {
       success: false,
       status: "error",
