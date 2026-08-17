@@ -85,8 +85,22 @@ export async function POST(req: Request) {
       // Correo para el administrador/negocio
       resend.emails.send({
         from: `${BRAND_NAME} <${SUPPORT_EMAIL}>`,
-        to: [SUPPORT_EMAIL, "gretomin@gmail.com", "redireccion973@gmail.com"],
+        to: SUPPORT_EMAIL,
         replyTo: email, // Permite que el negocio le de "Responder" directamente al cliente
+        subject: adminSubject,
+        html: adminEmailHtml,
+      }),
+      resend.emails.send({
+        from: `${BRAND_NAME} <${SUPPORT_EMAIL}>`,
+        to: "gretomin@gmail.com",
+        replyTo: email,
+        subject: adminSubject,
+        html: adminEmailHtml,
+      }),
+      resend.emails.send({
+        from: `${BRAND_NAME} <${SUPPORT_EMAIL}>`,
+        to: "redireccion973@gmail.com",
+        replyTo: email,
         subject: adminSubject,
         html: adminEmailHtml,
       })

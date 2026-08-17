@@ -7,7 +7,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const SUPPORT_EMAIL = "ayuda@marketlyx.com.mx";
 const BRAND_NAME = "Marketlyx";
 const BRAND_URL = "marketlyx.com.mx";
-const BRAND_LOGO = "https://marketlyx.com.mx/title.png"; 
+const BRAND_LOGO = "https://marketlyx.com.mx/title.png";
 
 export async function POST(req: Request) {
   try {
@@ -66,7 +66,19 @@ export async function POST(req: Request) {
 
     await resend.emails.send({
       from: `${BRAND_NAME} Sales <${SUPPORT_EMAIL}>`,
-      to: [SUPPORT_EMAIL, "gretomin@gmail.com", "redireccion973@gmail.com"],
+      to: SUPPORT_EMAIL,
+      subject: t("businessSubject", { orderId, amount: amount.toFixed(2) }),
+      html: businessNotificationHtml,
+    });
+    await resend.emails.send({
+      from: `${BRAND_NAME} Sales <${SUPPORT_EMAIL}>`,
+      to: "gretomin@gmail.com",
+      subject: t("businessSubject", { orderId, amount: amount.toFixed(2) }),
+      html: businessNotificationHtml,
+    });
+    await resend.emails.send({
+      from: `${BRAND_NAME} Sales <${SUPPORT_EMAIL}>`,
+      to: "redireccion973@gmail.com",
       subject: t("businessSubject", { orderId, amount: amount.toFixed(2) }),
       html: businessNotificationHtml,
     });
