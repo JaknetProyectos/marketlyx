@@ -38,7 +38,7 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className="antialiased font-body bg-[#0b0f12] text-slate-100 selection:bg-[#cdef24] selection:text-[#0b0f12]"
+        className="antialiased font-body"
       >
         <ClientBody>{children}</ClientBody>
       </body>

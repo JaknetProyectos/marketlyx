@@ -197,19 +197,19 @@
   "footer": {
     "legal": {
       "title": "Legal Notice",
-      "terms": "TERMS OF SERVICE",
-      "refunds": "REFUND AND CANCELLATION POLICY",
-      "privacy": "PRIVACY NOTICE",
+      "terms": "TERMS AND CONDITIONS",
+      "refunds": "RETURNS AND REFUND POLICY",
+      "privacy": "PRIVACY POLICY",
       "paymentAlt": "Accepted payment options"
     },
     "contact": {
       "title": "Contact Us",
       "phoneLabel": "Telephone",
       "addressLabel": "Address",
-      "addressLine1": "CALLE ALFONSO NAPOLES GANDARA #50",
-      "addressLine2": "SUITE 401, FLOOR 4, COL. PENA BLANCA",
-      "addressLine3": "SANTA FE, ZIP CODE 01210",
-      "addressLine4": "MEXICO CITY",
+      "addressLine1": "Calle Alfonso Nápoles Gándara #50,",
+      "addressLine2": "Unit 401, 4th Floor, Col. Peña Blanca Santa Fe,",
+      "addressLine3": "Postal Code 01210, Álvaro Obregón Borough,",
+      "addressLine4": "México City",
       "emailLabel": "Email"
     },
     "brand": {

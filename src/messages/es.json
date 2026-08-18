@@ -197,18 +197,18 @@
   "footer": {
     "legal": {
       "title": "Avisos Legales",
-      "terms": "TÉRMINOS Y CONDICIONES DEL SERVICIO",
-      "refunds": "POLÍTICA DE REEMBOLSOS Y DEVOLUCIONES",
-      "privacy": "AVISO DE PRIVACIDAD",
+      "terms": "TÉRMINOS Y CONDICIONES",
+      "refunds": "POLÍTICA DE DEVOLUCIONES Y REEMBOLSO",
+      "privacy": "POLÍTICA DE PRIVACIDAD",
       "paymentAlt": "Opciones de pago"
     },
     "contact": {
       "title": "Ubicación y Contacto",
       "phoneLabel": "Atención Telefónica",
       "addressLabel": "Ubicación Física",
-      "addressLine1": "CALLE ALFONSO NAPOLES GANDARA #50",
-      "addressLine2": "INT 401, PISO 4, COL. PEÑA BLANCA",
-      "addressLine3": "SANTA FE, CP. 01210",
+      "addressLine1": "CALLE ALFONSO NAPOLES GANDARA #50,",
+      "addressLine2": "INT 401, PISO 4, COL. PEÑA BLANCA SANTA FE,",
+      "addressLine3": "CP. 01210, ALCALDÍA ALVARO OBREGON,",
       "addressLine4": "CIUDAD DE MÉXICO",
       "emailLabel": "Dirección de Correo"
     },
